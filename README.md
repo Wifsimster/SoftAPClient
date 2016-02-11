@@ -1,4 +1,4 @@
-# Client for an soft Access Point
+# Client for a soft Access Point
 
 This LUA script is for ESP8266 hardware.
 
