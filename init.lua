@@ -14,7 +14,7 @@ gpio.write(gpio2, gpio.LOW)
 
 prev_value = 0
 
--- Send value thought HTTP request to AP
+-- Send value throught HTTP request to AP
 function sendData(value)
     conn=net.createConnection(net.TCP, 0)
     conn:on("receive", function(conn, payload) print(payload) end )
@@ -40,8 +40,9 @@ tmr.alarm(3, 1000, 1, function()
                 gpio.write(gpio0, gpio.HIGH)
                 -- Send GPIO2 when value change
                 gpio.trig(gpio2, 'both', function()
-                        sendData(gpio.read(gpio2))
-                    end)
+                    print("Send: "..gpio.read(gpio2))
+                    sendData(gpio.read(gpio2))
+                end)
             else
                 print("Wifi setup time more than 60s")
                 gpio.write(gpio0, gpio.LOW)
